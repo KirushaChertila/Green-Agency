@@ -3,36 +3,45 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -Menu Modal- */
 
   const modal = document.getElementById('info_modal');
-  const openBtn = document.querySelector('.info_modal-open_btn');
+  const openBtns = document.querySelectorAll('.info_modal-open_btn');
   const closeBtn = document.getElementById('modal_close_btn');
 
-  openBtn.addEventListener('click', () => {
-    modal.style.display = 'block';
-    document.body.classList.add('modal_open');
-    document.body.style.overflow = 'hidden';
-  });
+  if (openBtns.length > 0 && modal) {
+    openBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.style.display = 'block';
+        document.body.classList.add('modal_open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+  }
 
-  closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-    document.body.classList.remove('modal_open');
-    document.body.style.overflow = 'auto';
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => {
       modal.style.display = 'none';
       document.body.classList.remove('modal_open');
       document.body.style.overflow = 'auto';
-    }
-  });
+    });
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal_open');
+        document.body.style.overflow = 'auto';
+      }
+    });
+  }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.style.display === 'block') {
+    if (e.key === 'Escape' && modal && modal.style.display === 'block') {
       modal.style.display = 'none';
       document.body.classList.remove('modal_open');
       document.body.style.overflow = 'auto';
     }
-  }); 
+  });
 
   /* -Slider- */
 

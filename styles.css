@@ -1016,7 +1016,7 @@ body.modal_open {
   flex-direction: row;
   justify-content: center;
   gap: 56px;
-  /* height: 88px; */
+  height: 88px;
 }
 
 .partners_item {
@@ -2049,7 +2049,7 @@ textarea::-webkit-scrollbar {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
   }
 
   #footer_block {
@@ -2068,6 +2068,10 @@ textarea::-webkit-scrollbar {
 
   h2 {
     font-size: 16px;
+  }
+
+  body {
+    overflow-x: hidden;
   }
 
   .about_heading {
@@ -2089,7 +2093,7 @@ textarea::-webkit-scrollbar {
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 210px;
-    gap: 16px;
+    gap: 10px;
   }
 
   .about_item {
@@ -2106,13 +2110,9 @@ textarea::-webkit-scrollbar {
   }
 
   .blog_item {
-    flex: 0 0 313px;
-    max-width: 313px;
-    min-width: 313px;
-  }
-
-  .partners_item_list {
-    max-width: 328px;
+    flex: 0 0 322px;
+    max-width: 322px;
+    min-width: 322px;
   }
 
   .partners_item {
@@ -2120,11 +2120,7 @@ textarea::-webkit-scrollbar {
   }
 
   #footer_block {
-    margin-top: 60px;
-  }
-
-  .block_title {
-    font-size: 1.2rem;
+    margin-top: 120px;
   }
 
 }
