@@ -80,7 +80,9 @@
 }
 
 /* -Main Styles- */
-
+* {
+  transition: all 0.3s;
+}
 
 html {
   width: 100%;
@@ -92,8 +94,6 @@ body {
   background-color: var(--bg-color);
   position: relative;
   padding-top: 1.5rem;
-  padding-left: 6.25rem;
-  padding-right: 6.25rem;
   overflow-x: hidden;
 }
 
@@ -241,6 +241,8 @@ textarea::-webkit-scrollbar {
   justify-content: space-between;
   align-items: center;
   height: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
   margin-bottom: 17px;
 }
 
@@ -293,25 +295,25 @@ textarea::-webkit-scrollbar {
 /* -Modal- */
 
 .info_modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 16px;
-    background-color: var(--bg-color);
-    z-index: 1000;
-    overflow: hidden;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  background-color: var(--bg-color);
+  z-index: 1000;
+  overflow: hidden;
 }
 
 .info_modal_content {
-    background-color: var(--bg-color);
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal_header {
@@ -386,14 +388,16 @@ textarea::-webkit-scrollbar {
 }
 
 body.modal_open {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }
 
 /* -Menu- */
 
 .menu_panel {
+  padding-left: 100px;
+  padding-right: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -419,6 +423,53 @@ body.modal_open {
   justify-content: center;
   align-items: center;
   gap: 4px;
+}
+
+.menu_item_with_dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown_menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.menu_item_with_dropdown:hover .dropdown_menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown_item {
+  display: block;
+  padding: 12px 16px;
+  font-family: 'Onest-Regular';
+  font-size: 14px;
+  color: var(--global-color-white);
+  background-color: var();
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.3s;
+}
+
+.dropdown_item:last-child {
+  border-bottom: none;
+}
+
+.dropdown_item:hover {
+  background-color: var(--menu-panel-hover);
+  color: var(--primary-color);
+  padding-left: 20px;
 }
 
 .menu_arrow_hover {
@@ -453,6 +504,8 @@ body.modal_open {
 /* -Intro Section- */
 
 .intro_block {
+  padding-left: 100px;
+  padding-right: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -502,6 +555,8 @@ body.modal_open {
 /* -Services Section- */
 
 .services_section {
+  padding-left: 100px;
+  padding-right: 100px;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -616,6 +671,8 @@ body.modal_open {
 /* -Trust Section- */
 
 .trust_section {
+  padding-left: 100px;
+  padding-right: 100px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -657,8 +714,8 @@ body.modal_open {
 .trust_item-list {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
-  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
   gap: 22px;
   margin: -145px auto 36px;
 }
@@ -679,6 +736,8 @@ body.modal_open {
 /* -Blog Section- */
 
 .blog_section {
+  padding-left: 100px;
+  padding-right: 100px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -696,11 +755,11 @@ body.modal_open {
   display: flex;
   align-items: flex-start;
   max-width: 1705px;
-  max-height: 490px;
+  /* max-height: 490px; */
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   gap: 20px;
 }
 
@@ -711,7 +770,7 @@ body.modal_open {
 .blog_item {
   flex: 0 0 450px;
   min-width: 450px;
-  min-height: 490px;
+  max-height: 493px;
   border-radius: 8px;
   position: relative;
   scroll-snap-align: start;
@@ -721,6 +780,7 @@ body.modal_open {
 
 .blog_item:hover {
   border: 1px solid var(--body-text-big-tile);
+  background-color: var(--menu-panel-hover);
   transition: 0.3s;
 }
 
@@ -729,6 +789,7 @@ body.modal_open {
   flex-direction: column;
   padding: 24px;
   max-width: 403px;
+  margin-bottom: 45px;
   gap: 12px;
 }
 
@@ -811,8 +872,9 @@ body.modal_open {
 /* -About Section- */
 
 .about_section {
+  margin-left: 100px;
+  margin-right: 100px;
   overflow: hidden;
-  width: 100%;
   background-color: var(--body-tile-color);
   border-radius: 16px;
   position: relative;
@@ -1016,7 +1078,7 @@ body.modal_open {
   flex-direction: row;
   justify-content: center;
   gap: 56px;
-  height: 88px;
+  /* height: 88px; */
 }
 
 .partners_item {
@@ -1038,6 +1100,8 @@ body.modal_open {
 /* -Footer Section- */
 
 #footer_block {
+  margin-left: 100px;
+  margin-right: 100px;
   border-top: 1px solid var(--border-color);
   height: 66px;
   margin-top: 56px;
@@ -1193,8 +1257,6 @@ textarea::-webkit-scrollbar {
   }
 
   body {
-    padding-left: 22px;
-    padding-right: 22px;
     padding-top: 24px;
     position: relative;
     background-color: var(--bg-color);
@@ -1203,6 +1265,8 @@ textarea::-webkit-scrollbar {
   /* -Header- */
 
   .info_block {
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1249,6 +1313,8 @@ textarea::-webkit-scrollbar {
   }
 
   .menu_panel {
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1279,6 +1345,8 @@ textarea::-webkit-scrollbar {
   } */
 
   .intro_block {
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -1323,6 +1391,8 @@ textarea::-webkit-scrollbar {
   /* -Services Section- */
 
   .services_section {
+    padding-left: 20px;
+    padding-right: 20px;
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -1398,6 +1468,8 @@ textarea::-webkit-scrollbar {
   /* -Trust Section- */
 
   .trust_section {
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1463,6 +1535,8 @@ textarea::-webkit-scrollbar {
   /* -Blog Section- */
 
   .blog_section {
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     position: relative;
     flex-direction: column;
@@ -1494,7 +1568,6 @@ textarea::-webkit-scrollbar {
   .blog_item {
     flex: 0 0 368px;
     min-width: 368px;
-    min-height: 490px;
     border-radius: 8px;
   }
 
@@ -1512,6 +1585,8 @@ textarea::-webkit-scrollbar {
     font-family: 'Onest-Regular';
     color: var(--global-color-white);
     font-size: 16px;
+    max-height: 96px;
+    overflow-y: hidden;
   }
 
   .blog_date {
@@ -1544,7 +1619,8 @@ textarea::-webkit-scrollbar {
   /* -About Section- */
 
   .about_section {
-    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
     background-color: var(--body-tile-color);
     border-radius: 16px;
     position: relative;
@@ -1620,9 +1696,19 @@ textarea::-webkit-scrollbar {
     color: var(--text-grey-text);
   }
 
+  .partners_section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .partners_heading {
     margin-top: 80px;
     margin-bottom: 24px;
+  }
+
+  #footer_block {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
 }
@@ -1721,8 +1807,6 @@ textarea::-webkit-scrollbar {
   }
 
   body {
-    padding-left: 16px;
-    padding-right: 16px;
     padding-top: 16px;
   }
 
@@ -1737,6 +1821,8 @@ textarea::-webkit-scrollbar {
   }
 
   .info_block {
+    padding-left: 16px;
+    padding-right: 16px;
     margin-bottom: 0px;
   }
 
@@ -1788,6 +1874,8 @@ textarea::-webkit-scrollbar {
   } */
 
   .intro_block {
+    padding-left: 16px;
+    padding-right: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1837,6 +1925,8 @@ textarea::-webkit-scrollbar {
   }
 
   .services_section {
+    padding-left: 16px;
+    padding-right: 16px;
     margin-bottom: 60px;
   }
 
@@ -1851,7 +1941,7 @@ textarea::-webkit-scrollbar {
   }
 
   .services_section-item {
-    max-width: 355px;
+    max-width: 553px;
     gap: 6px;
     display: flex;
     flex-direction: row;
@@ -1903,7 +1993,7 @@ textarea::-webkit-scrollbar {
   }
 
   .services_item-lower {
-    max-width: 219px;
+    /* max-width: 219px; */
     max-height: 60px;
     display: flex;
     justify-content: center;
@@ -1919,6 +2009,8 @@ textarea::-webkit-scrollbar {
   }
 
   .trust_section {
+    padding-left: 16px;
+    padding-right: 16px;
     margin-bottom: 60px;
   }
 
@@ -1958,6 +2050,8 @@ textarea::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 16px;
+    margin-right: 16px;
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 30px;
@@ -2072,6 +2166,7 @@ textarea::-webkit-scrollbar {
 
   body {
     overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   .about_heading {
@@ -2079,6 +2174,8 @@ textarea::-webkit-scrollbar {
   }
 
   .about_section {
+    margin-left: 0px;
+    margin-right: 0px;
     padding: 16px;
   }
   
@@ -2092,12 +2189,13 @@ textarea::-webkit-scrollbar {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: 210px;
+    margin-bottom: 230px;
     gap: 10px;
   }
 
   .about_item {
     max-width: 155px;
+    padding: 12px;
   }
 
   .about_item_text {
@@ -2106,13 +2204,20 @@ textarea::-webkit-scrollbar {
   }
 
   .about_bg_img {
-    left: 0px;
+    width: 350px;
+    left: 10px;
   }
 
   .blog_item {
-    flex: 0 0 322px;
-    max-width: 322px;
-    min-width: 322px;
+    flex: 0 0 300px;
+    max-width: 300px;
+    min-width: 300px;
+    max-height: 441px;
+  }
+
+  .contacts_section {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .partners_item {
@@ -2120,7 +2225,11 @@ textarea::-webkit-scrollbar {
   }
 
   #footer_block {
-    margin-top: 120px;
+    margin-top: 50px;
+  }
+
+  .partners_image {
+    height: 38px;
   }
 
 }
